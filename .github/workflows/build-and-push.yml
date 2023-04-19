@@ -16,21 +16,29 @@ jobs:
       run:
         shell: bash
     steps:
-    - name: Login to DockerHub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Checkout this repository
-      uses: actions/checkout@v3
-    - name: Set environment DOCKERHUB_IMAGE on "main" branch
-      if: github.ref == 'refs/heads/main'
-      run: echo "DOCKERHUB_IMAGE=${DOCKERHUB_REPOSITORY}:latest" >> $GITHUB_ENV
-    - name: Set environment DOCKERHUB_IMAGE on "v*" branches
-      if: github.ref != 'refs/heads/main'
-      run: echo "DOCKERHUB_IMAGE=${DOCKERHUB_REPOSITORY}:${GITHUB_REF_NAME},${DOCKERHUB_REPOSITORY}:${GITHUB_REF_NAME#v*}" >> $GITHUB_ENV
-    - name: Build and push
-      uses: docker/build-push-action@v3
-      with:
-        push: true
-        tags: ${{ env.DOCKERHUB_IMAGE }}
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: magnaz
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Checkout this repository
+        uses: actions/checkout@v3
+      - name: Set environment DOCKERHUB_IMAGE_TAGS on "main" branch
+        if: github.ref == 'refs/heads/main'
+        run: echo "DOCKERHUB_IMAGE_TAGS=${DOCKERHUB_REPOSITORY}:latest" >> $GITHUB_ENV
+      - name: Set environment DOCKERHUB_IMAGE_TAGS on "v*" branches
+        if: github.ref != 'refs/heads/main'
+        run: |
+          _VERSION="${GITHUB_REF_NAME#v*}"
+          _MINOR_VERSION="${_VERSION%.*}"
+          _MAJOR_VERSION="${_MINOR_VERSION%.*}"
+          _DOCKERHUB_IMAGE_TAGS="${DOCKERHUB_REPOSITORY}:${GITHUB_REF_NAME}"
+          _DOCKERHUB_IMAGE_TAGS+=",${DOCKERHUB_REPOSITORY}:${_VERSION}"
+          _DOCKERHUB_IMAGE_TAGS+=",${DOCKERHUB_REPOSITORY}:${_MINOR_VERSION}"
+          _DOCKERHUB_IMAGE_TAGS+=",${DOCKERHUB_REPOSITORY}:${_MAJOR_VERSION}"
+          echo "DOCKERHUB_IMAGE_TAGS=${_DOCKERHUB_IMAGE_TAGS}" >> $GITHUB_ENV
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ${{ env.DOCKERHUB_IMAGE_TAGS }}
