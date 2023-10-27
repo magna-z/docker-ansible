@@ -1,6 +1,6 @@
-FROM python:3.11-alpine3.17
+FROM python:3.11-alpine3.18
 
-ENV ANSIBLE_VERSION 7.4.0
+ENV ANSIBLE_VERSION 8.5.0
 
 RUN set -ex \
     && apk add --no-cache git openssh-client rsync \
