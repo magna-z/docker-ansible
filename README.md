@@ -11,7 +11,8 @@ Ansible runtime environment as Docker image based on Alpine Linux with Python.
 
 ### Available tags
 #### 8.X
-- **v8.6.1**, **8.6.1**, **8.6**, **8**, **latest** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v8.6.1)
+- **v8.7.0**, **8.7.0**, **8.7**, **8**, **latest** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v8.7.0)
+- **v8.6.1**, **8.6.1**, **8.6** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v8.6.1)
 - **v8.5.0**, **8.5.0**, **8.5** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v8.5.0)
 #### 7.X
 - **v7.4.0**, **7.4.0**, **7.4**, **7** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v7.4.0)
