@@ -5,6 +5,7 @@ Ansible runtime environment as Docker image based on Alpine Linux with Python.
 
 
 ### Links
+- <https://github.com/ansible-community/ansible-build-data/blob/main/11/CHANGELOG-v11.rst>
 - <https://github.com/ansible-community/ansible-build-data/blob/main/10/CHANGELOG-v10.rst>
 - <https://github.com/ansible-community/ansible-build-data/blob/main/9/CHANGELOG-v9.rst>
 - <https://github.com/ansible-community/ansible-build-data/blob/main/8/CHANGELOG-v8.rst>
@@ -12,8 +13,10 @@ Ansible runtime environment as Docker image based on Alpine Linux with Python.
 
 
 ### Available tags
+#### 11.X
+- **v11.4.0**, **11.4.0**, **11.4**, **11**, **latest** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v11.4.0)
 #### 10.X
-- **v10.7.0**, **10.7.0**, **10.7**, **10**, **latest** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v10.7.0)
+- **v10.7.0**, **10.7.0**, **10.7**, **10** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v10.7.0)
 #### 9.X
 - **v9.13.0**, **9.13.0**, **9.13**, **9** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v9.13.0)
 - **v9.1.0**, **9.1.0**, **9.1** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v9.1.0)
