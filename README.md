@@ -14,7 +14,8 @@ Ansible runtime environment as Docker image based on Alpine Linux with Python.
 
 ### Available tags
 #### 11.X
-- **v11.5.0**, **11.5.0**, **11.5**, **11**, **latest** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v11.5.0)
+- **v11.13.0**, **11.13.0**, **11.13**, **11**, **latest** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v11.13.0)
+- **v11.5.0**, **11.5.0**, **11.5** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v11.5.0)
 - **v11.4.0**, **11.4.0**, **11.4** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v11.4.0)
 #### 10.X
 - **v10.7.0**, **10.7.0**, **10.7**, **10** ![](https://img.shields.io/docker/image-size/magnaz/ansible/v10.7.0)
